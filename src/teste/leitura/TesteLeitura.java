@@ -1,4 +1,4 @@
-package teste.escrita;
+package teste.leitura;
 
 import java.io.*;
 

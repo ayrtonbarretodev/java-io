@@ -1,0 +1,56 @@
+import java.io.*;
+
+public class TesteLeitura {
+    public static void main(String[] args) throws IOException {
+
+        //Fluxo de Entrada com Arquivo
+        FileInputStream fis = new FileInputStream("lorem.txt"); //retorna bytes
+
+        //InputStream fis = new FileInputStream("lorem.txt"); //outra forma do código acima, pois FileInputStream é subclasse de InputStream
+
+        /* System.out.println("fis.read()");
+        while (fis.read()!= -1){
+            System.out.println(fis.read()); // O método read() do InputStream retorna um valor inteiro que contém obyte correspondente que foi lido.
+        } */
+
+        //System.out.println();
+
+        InputStreamReader isr = new InputStreamReader(fis);  //bytes -> char
+
+        //Reader isr = new InputStreamReader(fis); //outra forma do código acima, pois InputStreamReader é subclasse de Reader
+
+        /* int data = isr.read(); // O método read() de um InputStreamReader retorna um int que contém o valor char do char lido.
+        System.out.println("isr.read()");
+        while (data!= -1){
+            char theChar = (char) data;
+            data = isr.read();
+            System.out.println(data); //retorna characteres
+        } */
+
+
+        /*
+         * A função do InputStreamReader é servir como um adaptador (Adapter) entre as duas classes - lê bytes de um lado,
+         * converte em caracteres do outro, através do uso de uma codificação de caracteres (encoding).
+         * */
+
+        /* Nenhuma das funções read() acima é interessante para o que queremos, que é ler as Strings do arquivo, por isso temos que:
+         * 1° Criar um objeto FileInputStream (fis)
+         * 2° Criar um objeto InputStreamReader (isr) e utilizar no construtor o objeto anterior (fis)
+         * 3° Criar um objeto BufferedReader (br) e utilizar no construtor o objeto anterior (isr), nesse objeto tem o método readLine() que retorna Strings
+         *
+         * Esse passo a passo é um examplo do padrão de projetos DECORATOR, no qual cada objeto está englobado no próximo objeto;
+         * */
+
+        BufferedReader br = new BufferedReader(isr);
+        //br.readLine(); char -> linha
+
+        String linha = br.readLine();
+        while (linha != null) {
+            System.out.println(linha);
+            linha = br.readLine();
+        }
+
+        br.close();
+
+    }
+}
