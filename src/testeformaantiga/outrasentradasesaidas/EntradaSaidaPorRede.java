@@ -1,15 +1,17 @@
-package teste.outrasentradasesaidas;
+package testeformaantiga.outrasentradasesaidas;
 
 import java.io.*;
+import java.net.Socket;
 
-public class EntradaNoTecladoSaidaNoConsole {
-    public static void main(String[] args) throws IOException {
-        System.out.println("Digite o texto: ");
-        InputStream fis = System.in; //entrada de dados pelo teclado
+public class EntradaSaidaPorRede {
+    public static void main(String[] args) throws IOException{
+
+
+        InputStream fis = new Socket().getInputStream(); //entrada por Rede
         Reader isr = new InputStreamReader(fis);
         BufferedReader br = new BufferedReader(isr);
 
-        FilterOutputStream fos = System.out; //saida no console
+        OutputStream fos = new Socket().getOutputStream(); //saida por Rede
         OutputStreamWriter osw = new OutputStreamWriter(fos);
         BufferedWriter bw = new BufferedWriter(osw);
 

@@ -1,4 +1,4 @@
-package teste.outrasentradasesaidas;
+package testeformaantiga.outrasentradasesaidas;
 
 import java.io.*;
 

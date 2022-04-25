@@ -1,4 +1,4 @@
-package teste.escrita;
+package testeformaantiga.escrita;
 
 import java.io.*;
 
