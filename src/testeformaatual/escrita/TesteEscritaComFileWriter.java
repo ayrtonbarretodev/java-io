@@ -1,4 +1,4 @@
-package testeformaatual.saidadadosarquivo;
+package testeformaatual.escrita;
 
 import java.io.*;
 
