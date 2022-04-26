@@ -29,14 +29,15 @@ public class TesteLeitura {
             Scanner linhaScanner = new Scanner(linha); //esse scanner verifica o conteúdo de uma única linha
             linhaScanner.useLocale(Locale.US); //usa as regras americanas
             linhaScanner.useDelimiter(",");
-            String valor1 = linhaScanner.next();
-            int valor2 = linhaScanner.nextInt();
-            int valor3 = linhaScanner.nextInt();
-            String valor4 = linhaScanner.next();
-            double valor5 = linhaScanner.nextDouble();
+            String tipoConta = linhaScanner.next();
+            int agencia = linhaScanner.nextInt();
+            int numero = linhaScanner.nextInt();
+            String titular = linhaScanner.next();
+            double saldo = linhaScanner.nextDouble();
 
             System.out.println("Elementos separados");
-            System.out.println(valor1 + " " + valor2 + " " + valor3 + " " + valor4 + " " + valor5);
+            String valorFormatado = String.format("%s - %04d, %08d, %s, %05.2f", tipoConta,agencia,numero,titular,saldo);
+            System.out.println(valorFormatado);
 
             System.out.println();
 
